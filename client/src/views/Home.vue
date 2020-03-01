@@ -1,7 +1,9 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HelloWorld msg="Welcome to WeFit!"/>
+    <figure class="image is-32x32">
+    <img alt="Vue logo" src="../assets/freewefitlogo.png">
+    </figure>
   </div>
 </template>
 
