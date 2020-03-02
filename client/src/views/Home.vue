@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <HelloWorld msg="Welcome to WeFit!"/>
-    <figure class="image is-32x32">
+    <figure class="image is-1by1">
     <img alt="Vue logo" src="../assets/freewefitlogo.png">
     </figure>
   </div>
