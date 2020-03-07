@@ -3,8 +3,9 @@
     <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
-      <router-link class="link" to="/">Sign Up</router-link> |
-      <router-link to="/login">Log In</router-link> 
+      <router-link to="/signup">Sign Up</router-link> |
+      <router-link to="/login">Log In</router-link> |
+      <router-link to="/workout">Workout</router-link> 
     </div>
     <router-view/>
   </div>

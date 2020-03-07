@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-primary is-fullheight">
+  <section class="hero is-warning is-fullheight">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">
@@ -8,7 +8,7 @@
             <div class="field">
               <label for="" class="label">Email</label>
               <div class="control has-icons-left">
-                <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required>
+                <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" v-model="email" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
@@ -17,7 +17,7 @@
             <div class="field">
               <label for="" class="label">Password</label>
               <div class="control has-icons-left">
-                <input type="password" placeholder="*******" class="input" required>
+                <input type="password" placeholder="*******" class="input" v-model="password" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-lock"></i>
                 </span>
@@ -44,8 +44,24 @@
 
 <script>
 export default {
-
-}
+    data() {
+        return {
+            email: '',
+            password: '',
+            error: ''
+            }
+        },
+        methods: {
+            login() {
+                try {
+                    Login(this.email, this.password);
+                    this.$router.push('/workout');
+                } catch (error) {
+                    this.error = error;
+                }
+            }
+        }
+    }
 </script>
 
 <style>

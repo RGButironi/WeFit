@@ -4,11 +4,12 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-          <form action="" class="box">
+          <form action="" class="box" @submit.prevent="login">
+            {{error}}
             <div class="field">
               <label for="" class="label">Email</label>
               <div class="control has-icons-left">
-                <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required>
+                <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" v-model="email" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
@@ -17,7 +18,7 @@
             <div class="field">
               <label for="" class="label">Password</label>
               <div class="control has-icons-left">
-                <input type="password" placeholder="*******" class="input" required>
+                <input type="password" placeholder="*******" class="input" v-model="password" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-lock"></i>
                 </span>
@@ -43,27 +44,24 @@
 </template>
 
 <script>
-    export default {
-        name: 'Login',
-        data() {
-            return {
-                input: {
-                    username: "",
-                    password: ""
-                }
+
+import { Login } from "../models/Users";
+
+export default {
+    data() {
+        return {
+            email: '',
+            password: '',
+            error: ''
             }
         },
         methods: {
             login() {
-                if(this.input.username != "" && this.input.password != "") {
-                    if(this.input.username == this.$parent.mockAccount.username && this.input.password == this.$parent.mockAccount.password) {
-                        this.$emit("authenticated", true);
-                        this.$router.replace({ name: "secure" });
-                    } else {
-                        console.log("The username and / or password is incorrect");
-                    }
-                } else {
-                    console.log("A username and password must be present");
+                try {
+                    Login(this.email, this.password);
+                    this.$router.push('/workout');
+                } catch (error) {
+                    this.error = error;
                 }
             }
         }
