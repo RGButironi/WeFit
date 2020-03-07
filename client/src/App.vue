@@ -8,6 +8,7 @@
       <router-link to="/workout">Workout</router-link> 
     </div>
     <router-view/>
+    <footer><router-link to="/adminlogin">Admin Login</router-link></footer>
   </div>
 </template>
 

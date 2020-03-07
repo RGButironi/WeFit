@@ -5,6 +5,9 @@ import Workout from '../views/Workout.vue'
 import Login from '../views/Login.vue'
 import Signup from '../views/Signup.vue'
 import { CurrentUser } from '../models/Users'
+import AdminLogin from '../views/AdminLogin.vue'
+import { CurrentAdmin } from '../models/Admin'
+import AdminWorkbench from '../views/AdminWorkbench.vue'
 
 Vue.use(VueRouter)
 
@@ -13,6 +16,8 @@ const routes = [
   { path: '/workout', name: 'Workout', component: Workout, meta: {isSecret: true} },
   { path: '/signup', name: 'Signup', component: Signup },
   { path: '/login', name: 'Login', component: Login },
+  { path: '/adminlogin', name: 'AdminLogin', component: AdminLogin },
+  { path: '/adminworkbench', name: 'AdminWorkbench', component: AdminWorkbench, meta: { isSecret: true } },
 
   {
     path: '/about',
@@ -30,6 +35,11 @@ const router = new VueRouter({
 
 router.beforeEach( (to, from, next)=> {
   if( to.meta.isSecret && !CurrentUser) next('/login');
+  else next();
+});
+
+router.beforeEach( (to, from, next) => {
+  if(to.meta.isSecret && !CurrentAdmin) next('/adminlogin');
   else next();
 });
 
