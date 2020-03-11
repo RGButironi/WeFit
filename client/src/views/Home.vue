@@ -4,6 +4,7 @@
       <h1 class="title">Choose your exercise!</h1>
     <div class="section exercise-container">
       <div v-for="exercise in exercises" :key="exercise.name">
+        <router-link v-bind:to="{ name: 'exercise-perform', params: { id: exercise.id }}">
         <div class="exercise-box">
           <img :src="exercise.thumbnail" />
             <div>
@@ -11,7 +12,7 @@
               <div v-html="exercise.description"></div>
             </div>
         </div>
-        <button class="button is-primary">Get Started!</button>
+        </router-link>
       </div>
     </div>
   </div>

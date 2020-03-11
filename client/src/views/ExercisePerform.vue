@@ -1,16 +1,23 @@
 <template>
 <div>
-  <h1>Hi, let's exercise!</h1>
-  <h3>{{ this.$route.params.id }}</h3>
-  {{ exercise.name }}
+
+  <h1>{{ exercise.name }}</h1>
+  <div v-html="exercise.description"></div>
 </div>
 </template>
 
 <script>
+import 'video.js/dist/video-js.css'
+
+import { videoPlayer } from 'vue-video-player'
+
 export default {
+    components: {
+        videoPlayer
+    },
     computed: {
         exercise(){
-            return this.$store.state.exercises.find(ex => ex.name == this.$route.params.id)
+            return this.$store.state.exercises.find(ex => ex.id == this.$route.params.id)
         }
     }
 }
