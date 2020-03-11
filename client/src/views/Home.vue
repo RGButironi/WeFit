@@ -1,13 +1,13 @@
 <template>
     
     <div class="home">
-      <h1>Exercises</h1>
+      <h1 class="title">Choose your exercise!</h1>
     <div class="section exercise-container">
       <div v-for="exercise in exercises" :key="exercise.name">
         <div class="exercise-box">
           <img :src="exercise.thumbnail" />
             <div>
-              <h3>{{exercise.name}}</h3>
+              <h3>{{ exercise.name }}</h3>
               <div v-html="exercise.description"></div>
             </div>
         </div>
@@ -18,42 +18,16 @@
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
-  name: 'Home',
+  name: "home",
   components: {},
     data() {
       return {
-        exercises: [
-          {
-          name: "Upperbody",
-          description: `<p>Dumbell Curls.</p>`,
-          thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/biceps1.png'
-          },
-          {
-          name: "Upperbody",
-          description: `<p>Dumbell Curls.</p>`,
-          thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/biceps1.png'
-          },
-          {
-          name: "Upperbody",
-          description: `<p>Dumbell Curls.</p>`,
-          thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/biceps1.png'
-          },
-          {
-          name: "Upperbody",
-          description: `<p>Dumbell Curls.</p>`,
-          thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/biceps1.png'
-          },
-          {
-          name: "Upperbody",
-          description: `<p>Dumbell Curls.</p>`,
-          thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/biceps1.png'
-          },
-
-        ]
+        exercises: this.$store.state.exercises
       }
     }
-  }
+  };
 </script>
 
 <style lang="scss" scoped>

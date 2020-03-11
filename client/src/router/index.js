@@ -7,6 +7,7 @@ import Signup from '../views/Signup.vue'
 import { CurrentUser } from '../models/Users'
 import AdminLogin from '../views/AdminLogin.vue'
 import { CurrentAdmin } from '../models/Admin'
+import ExercisePerform from "../views/ExercisePerform.vue"
 
 Vue.use(VueRouter)
 
@@ -16,7 +17,7 @@ const routes = [
   { path: '/signup', name: 'Signup', component: Signup },
   { path: '/login', name: 'Login', component: Login },
   { path: '/adminlogin', name: 'AdminLogin', component: AdminLogin },
-  
+  { path: "/exercise/:id", name: "exercise-perform", component: ExercisePerform, params: true },
 
   {
     path: '/about',
