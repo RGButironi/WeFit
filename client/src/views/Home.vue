@@ -1,15 +1,15 @@
 <template>
     
     <div class="home">
-      <h1 class="title">Choose your exercise!</h1>
-    <div class="section exercise-container">
+    <div class="section exercise-container has-background-info is-bold">
+      <h1 class="title has-text-centered">Choose your exercise!</h1>
       <div v-for="exercise in exercises" :key="exercise.name">
         <router-link v-bind:to="{ name: 'exercise-perform', params: { id: exercise.id }}">
         <div class="exercise-box">
           <img :src="exercise.thumbnail" />
             <div>
-              <h3>{{ exercise.name }}</h3>
-              <div v-html="exercise.description"></div>
+              <h3 class="has-text-warning has-text-weight-bold">{{ exercise.name }}</h3>
+              <div class="has-text-white has-text-weight-semibold" v-html="exercise.description"></div>
             </div>
         </div>
         </router-link>

@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-warning is-fullheight">
+  <section class="has-background-warning is-fullheight">
   <div class="hero-body">
     <div class="container">
       <div class="columns is-centered">
