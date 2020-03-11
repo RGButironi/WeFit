@@ -12,7 +12,7 @@
     <div>{{ exercise.description | abbreviate }}</div>
     <div>
         <router-link :to="{ name: 'exercise-perform', params: {id: exercise.id}}" class="button is-primary">Display</router-link>
-        <v-btn @click="deleteExercise" class="button is-danger">Delete</v-btn>
+        <v-btn @click="deleteExercise(exercise)" class="button is-danger">Delete</v-btn>
     </div>
     </div>
     </div>
@@ -25,8 +25,16 @@ import {mapState } from 'vuex';
 export default {
     computed: {
         ...mapState(['exercises'])
+    },
+
+methods: {
+    deleteExercise(exercise) {
+        this.$store.dispatch('deleteExercise', exercise);
+        }
     }
 }
+
+
 
 </script>
 
@@ -36,9 +44,6 @@ export default {
         border-bottom: 1px black;
         display: grid;
         grid-template-columns: repeat(auto-fill, 33%);
-    }
-    .actions {
-
     }
 
 </style>

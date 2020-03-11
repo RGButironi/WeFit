@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -48,7 +49,16 @@ export default new Vuex.Store({
             } 
           ],
         },
-    mutations: {},
-    actions: {},
+    mutations: {
+        DELETE_EXERCISE(state, exerciseId){
+            let exercises = state.exercises.filter(e => e.id != exerciseId)
+            state.exercises = exercises;
+        }
+    },
+    actions: {
+        async deleteExercise({commit}, exercise) {
+            commit('DELETE_EXERCISE', exercise.id);
+        }
+    },
     modules: {}
 });
