@@ -18,15 +18,15 @@ export default new Vuex.Store({
             id: 2,
             name: "Core",
             description: `<p>Increasing core strength is one of the most overlooked areas of personal fitness. 
-            This routine is designed to not only help you improve your core strength, but also help you avoid injuries that can occur due
-            because of a week core.</p>`,
+            This routine is designed to not only help you improve your core strength, but also help you avoid injuries that can occur because 
+            of a weak core.</p>`,
             thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/core.png',
             vidlink: "https://vue-screencasts.s3.us-east-2.amazonaws.com/video-files/38-+es2015-+functions+minus+'function'.mp4"
             },
             {
             id: 3,
             name: "Legs",
-            description: `<p>There's no skipping leg day with WeFit! Come build your lower body with this great routine!</p>`,
+            description: `<p>Poor lower-body strength is a stumbling block for many folks, that's why there's no skipping leg day with WeFit!Come build your lower body with this great routine!</p>`,
             thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/legs.png',
             vidlink: 'https://www.youtube.com/watch?v=Ku20ZrKFY4Q'
             },

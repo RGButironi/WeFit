@@ -8,7 +8,7 @@ import { CurrentUser } from '../models/Users'
 import AdminLogin from '../views/AdminLogin.vue'
 import { CurrentAdmin } from '../models/Admin'
 import ExercisePerform from "../views/ExercisePerform.vue"
-
+import AdminWorkbench from "../views/AdminWorkbench.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -18,7 +18,7 @@ const routes = [
   { path: '/login', name: 'Login', component: Login },
   { path: '/adminlogin', name: 'AdminLogin', component: AdminLogin },
   { path: "/exercise/:id", name: "exercise-perform", component: ExercisePerform, params: true },
-
+  { path: '/adminworkbench', name: 'AdminWorkbench', component: AdminWorkbench },
   {
     path: '/about',
     name: 'About',
