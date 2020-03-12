@@ -28,19 +28,8 @@ export default {
       return {
         exercises: this.$store.state.exercises
       }
-    },
-
-
-  methods: {
-    todoCompleted(todo) {
-        todo.completed = !todo.completed
-    },
-
-    remove(index) {
-        this.$delete(this.$store.state.exercises, index);
     }
   }
-};
 </script>
 
 <style lang="scss" scoped>

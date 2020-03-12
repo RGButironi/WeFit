@@ -8,7 +8,7 @@
             <div class="field">
               <label for="" class="label">Email</label>
               <div class="control has-icons-left">
-                <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" v-model="email" required>
+                <input type="email" placeholder="Your email" class="input" v-model="email" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-envelope"></i>
                 </span>
@@ -17,7 +17,7 @@
             <div class="field">
               <label for="" class="label">Password</label>
               <div class="control has-icons-left">
-                <input type="password" placeholder="*******" class="input" v-model="password" required>
+                <input type="password" placeholder="********" class="input" v-model="password" required>
                 <span class="icon is-small is-left">
                   <i class="fa fa-lock"></i>
                 </span>
