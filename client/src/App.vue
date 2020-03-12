@@ -9,7 +9,7 @@
       <router-link to="/workout">Workout</router-link> 
     </div>
     <router-view/>
-    <footer><router-link to="/adminlogin">Admin Login</router-link></footer>
+    <footer><router-link to="/adminworkbench">Admin Workbench</router-link></footer>
   </div>
 </template>
 

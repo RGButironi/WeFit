@@ -38,7 +38,7 @@ router.beforeEach( (to, from, next)=> {
   else next();
 });
 
-/**outer.beforeEach( (to, from, next) => {
+/*router.beforeEach( (to, from, next) => {
   if(to.meta.isSecret && !CurrentAdmin) next('/adminlogin');
   else next();
 });*/

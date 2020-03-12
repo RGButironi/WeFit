@@ -1,147 +1,64 @@
 <template>
-<div class="column has-background-info is-bold">
-  <h1 class="title is-fullwidth">Upper Body</h1>
-  <section class="list has-background-info">
-    <article>
-      <a class="delete is-medium is-pulled-left" v-on:click="todoDelete(todo)"></a>
-      <img src="./bicep.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-    </article>
-    <article v-show="!isNinja">
-      <a class="delete is-medium is-pulled-left" v-on:click="isNinja = !isNinja"></a>
-      <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-    </article>
-  <article>
-    <a class="delete is-medium is-pulled-left"></a>
-    <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-  </article>
-  <article>
-    <a class="delete is-medium is-pulled-left"></a>
-    <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-  </article>
-  <article>
-    <a class="delete is-medium is-pulled-left"></a>
-    <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-  </article>
-  <article>
-    <a class="delete is-medium is-pulled-left"></a>
-      <img src="./bicep.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-    </article>
-  </section>
-
-  <h1 class="title">Core</h1>
-  <section class="list has-background-info">
-    <article>
-      <a class="delete is-medium is-pulled-left"></a>
-      <img src="./bicep.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-    </article>
-    <article>
-      <a class="delete is-medium is-pulled-left"></a>
-      <img src="./bicep.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-    </article>
-    <article>
-      <a class="delete is-medium is-pulled-left"></a>
-      <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-    </article>
-  <article>
-    <a class="delete is-medium is-pulled-left"></a>
-    <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-  </article>
-  <article>
-    <a class="delete is-medium is-pulled-left"></a>
-    <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-  </article>
-  <article>
-    <a class="delete is-medium is-pulled-left"></a>
-    <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-  </article>
-  </section>
-
-  <h1 class="title">Lower Body</h1>
-  <section class="list has-background-info">
-    <article>
-      <a class="delete is-medium is-pulled-left"></a>
-      <img src="./bicep.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-    </article>
-    <article>
-      <a class="delete is-medium is-pulled-left"></a>
-      <img src="./bicep.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-    </article>
-    <article>
-      <a class="delete is-medium is-pulled-left"></a>
-      <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-    </article>
-  <article>
-    <a class="delete is-medium is-pulled-left"></a>
-    <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-  </article>
-  <article>
-    <a class="delete is-medium is-pulled-left"></a>
-    <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-  </article>
-  <article>
-    <a class="delete is-medium is-pulled-left"></a>
-    <img src="./biceps1.png" width="96" height="96" alt="">
-      <h3>Biceps</h3>
-  </article>
-  </section>
-</div>
+    
+    <div class="home">
+    <div class="section exercise-container has-background-info is-bold">
+      <h1 class="title has-text-centered">Choose your exercise!</h1>
+      <div v-for="exercise in exercises" :key="exercise.name">
+        <router-link class="column" v-bind:to="{ name: 'exercise-perform', params: { id: exercise.id }}">
+        <div class="exercise-box">
+          <img :src="exercise.thumbnail" />
+            <div>
+              <h3 class="has-text-warning has-text-weight-bold">{{ exercise.name }}</h3>
+              <div class="has-text-white has-text-weight-semibold" v-html="exercise.description"></div>
+            </div>
+        </div>
+        </router-link>
+        <div class="column is-offset-one-fifth-desktop is-three-fifths-desktop has-text-weight-semibold">Difficulty<progress class="progress is-small is-success" value="45" max="100">90%</progress></div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
+import {mapState} from 'vuex';
 export default {
-  props: ['todos'],
+  name: "home",
+  components: {},
+    data() {
+      return {
+        exercises: this.$store.state.exercises
+      }
+    },
+
 
   methods: {
     todoCompleted(todo) {
         todo.completed = !todo.completed
     },
 
-    todoDelete(todo) {
-        this.todos.$delete(todo);
+    remove(index) {
+        this.$delete(this.$store.state.exercises, index);
     }
   }
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-gap: 10px;
+  .exercise-container {
+    .exercise-box {
+      border:1px solid black;
+      border-radius: 10px;
+      margin: 10px;
+      padding: 10px;
+      text-align: left;
+      display: flex;
+      justify-content:  flex-start;
 
-    article {
-      height: 150px;
-      background-color: #efefef;
-      text-align: center;
-      text-transform: capitalize;
-      border-radius: 5px;
-      cursor: pointer;
-      /*box-shadow: 0 15px 30px rgba(0,0,0,.9),
-                  0 10px 10px rgba(0,0,0,.2);*/
-
-      h3 {
-        margin: 0;
-      }
-      a {
-        margin: 4px 0px 0px 4px;
+      img {
+        max-height: 96px;
+        padding: 10px;
       }
     }
   }
 </style>
+
