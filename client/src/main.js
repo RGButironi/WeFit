@@ -17,4 +17,4 @@ var app = new Vue({
   data: {
     product: 'Your Personal Trainer'
   }
-})
+});

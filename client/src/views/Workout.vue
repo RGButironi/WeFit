@@ -10,10 +10,11 @@
             <div>
               <h3 class="has-text-warning has-text-weight-bold">{{ exercise.name }}</h3>
               <div class="has-text-white has-text-weight-semibold" v-html="exercise.description"></div>
+              <div class="has-text-black">Completions: {{exercise.views}}</div>
             </div>
         </div>
         </router-link>
-        <div class="column is-offset-one-fifth-desktop is-three-fifths-desktop has-text-weight-semibold">Difficulty Level<progress class="progress is-small is-success" value="45" max="100">90%</progress></div>
+        <div class="column is-offset-one-fifth-desktop is-three-fifths-desktop has-text-weight-semibold">Difficulty Level<progress class="progress is-small is-warning" value="30" max="100">90%</progress></div>
       </div>
     </div>
   </div>

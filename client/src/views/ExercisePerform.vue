@@ -12,7 +12,6 @@
 <script>
 // video player taken with permission from author (Surmon) on Github. -Ronald
 import 'video.js/dist/video-js.css'
-
 import { videoPlayer } from 'vue-video-player'
 
 export default {

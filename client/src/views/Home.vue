@@ -1,5 +1,4 @@
 <template>
-    
     <div class="home">
     <div class="section exercise-container has-background-info is-bold">
       <h1 class="title has-text-centered">Choose your exercise!</h1>
@@ -10,7 +9,7 @@
             <div>
               <h3 class="has-text-warning has-text-weight-bold">{{ exercise.name }}</h3>
               <div class="has-text-white has-text-weight-semibold" v-html="exercise.description"></div>
-            <div class="has-text-black">Times Performed: {{exercise.views}}</div>
+            <div class="has-text-black">Completions: {{exercise.views}}</div>
             </div>
         </div>
         </router-link>
