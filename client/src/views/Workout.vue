@@ -1,6 +1,5 @@
 <template>
-    
-    <div class="home">
+  <div class="home">
     <div class="section exercise-container has-background-info is-bold">
       <h1 class="title has-text-centered">Choose your exercise!</h1>
       <div v-for="exercise in exercises" :key="exercise.name">
