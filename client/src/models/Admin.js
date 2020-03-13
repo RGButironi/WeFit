@@ -1,5 +1,5 @@
 const Admin = [
-    { Name: 'Ron', Password: "pass", Email: 'ron@gmail.com'},
+    { Name: 'Ron', Password: "pass", Email: 'ron@gmail.com'}
 ];
 
 export let CurrentAdmin = null;

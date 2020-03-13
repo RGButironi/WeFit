@@ -10,6 +10,7 @@
             <div>
               <h3 class="has-text-warning has-text-weight-bold">{{ exercise.name }}</h3>
               <div class="has-text-white has-text-weight-semibold" v-html="exercise.description"></div>
+            <div class="has-text-black">Times Performed: {{exercise.views}}</div>
             </div>
         </div>
         </router-link>
