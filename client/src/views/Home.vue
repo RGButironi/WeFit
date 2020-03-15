@@ -13,6 +13,8 @@
             </div>
         </div>
         </router-link>
+        <button class="button" @click="increment">Increment</button>
+        {{ exercise.views }}
         <div class="column is-offset-one-fifth-desktop is-three-fifths-desktop has-text-weight-semibold">Difficulty<progress class="progress is-small is-success" value="45" max="100">90%</progress></div>
       </div>
     </div>
@@ -21,6 +23,7 @@
 
 <script>
 import {mapState} from 'vuex';
+
 export default {
   name: "home",
   components: {},
@@ -28,6 +31,14 @@ export default {
       return {
         exercises: this.$store.state.exercises
       }
+    },
+        computed: {
+      ...mapState(['views'])
+    },
+    methods: {
+        increment(exercise) {
+        this.$store.dispatch('increment', exercise.views)
+        }
     }
 };
 </script>
@@ -50,4 +61,3 @@ export default {
     }
   }
 </style>
-

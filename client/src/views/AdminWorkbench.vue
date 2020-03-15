@@ -32,8 +32,7 @@ methods: {
         this.$store.dispatch('deleteExercise', exercise);
         }
     }
-}
-
+};
 </script>
 
 <style lang="scss" scoped>
