@@ -58,25 +58,34 @@ export default new Vuex.Store({
             difficulty: 25
             } 
           ],
+          completedWorkout: []
         },
     mutations: {
         DELETE_EXERCISE(state, exerciseId){
             let exercises = state.exercises.filter(e => e.id != exerciseId)
             state.exercises = exercises;
         },
-        INCREMENT() {
-            return this.$state.views++;
+        INCREMENT(state, exerciseId) {
+            //return this.$state.exercise.views++;
             //return this.$state.views()++;
-            }
+            },
+        DISPLAY_COMPLETED(state, exerciseId) {
+            let completedWorkout = state.completedWorkout.concat(exerciseId);
+            state.completedWorkout = completedWorkout;
+        }
         },
     actions: {
         async deleteExercise({commit}, exercise) {
             commit('DELETE_EXERCISE', exercise.id);
         },
 
-        increment (context) {
-            context.commit('INCREMENT')
-          }
+        increment ({commit}, exerciseId) {
+            commit('INCREMENT')
+          },
+        displayCompleted({commit}, exerciseId) {
+            commit('DISPLAY_COMPLETED', exerciseId);
+            //commit('INCREMENT');
+        }
         },
     modules: {}
 });
