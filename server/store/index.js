@@ -41,7 +41,7 @@ export default new Vuex.Store({
             This routine incorporates a comprehensive cardio routine that will lay the foundation for fitness goals</p>`,
             thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/cardio.png',
             vidlink: "http://cs.newpaltz.edu/~butironr1/WeFitPics/IMG_0541.mp4",
-            views: 4
+            views: 0
             },
             {
             id: 5,
