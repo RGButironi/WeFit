@@ -1,15 +1,17 @@
 <template>
 <div class="has-background-primary">
+  <h1 class="column is-offset-one-third is-one-third title">{{ exercise.name }}</h1>
+  <div class="column is-three-fifths is-offset-one-fifth" v-html="exercise.description"></div>
 <video-player  class="video-player-box"
                 ref="videoPlayer"
                 :options="playerOptions">
 </video-player>
-  <h1>{{ exercise.name }}</h1>
+  <div class="column">
   <button class="button is-info is-centered" v-if="completed">Nice job!</button>
   <div v-else>
     <button class="button is-warning" v-on:click="displayCompleted">Workout Finished</button>
   </div>
-  <div v-html="exercise.description"></div>
+</div>
 </div>
 </template>
 

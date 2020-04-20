@@ -31,7 +31,7 @@ export default new Vuex.Store({
             {
             id: 3,
             name: "Legs",
-            description: `<p>Poor lower-body strength is a stumbling block for many folks, that's why there's no skipping leg day with WeFit!Come build your lower body with this great routine!</p>`,
+            description: `<p>Poor lower-body strength is a stumbling block for many folks, that's why there's no skipping leg day with WeFit! Come build your lower body with this great routine!</p>`,
             thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/legs.png',
             vidlink: "http://cs.newpaltz.edu/~butironr1/WeFitPics/IMG_0541.mp4",
             views: 0,
