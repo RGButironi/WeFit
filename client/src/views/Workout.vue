@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+    <div class="home">
     <div class="section exercise-container has-background-info is-bold">
       <h1 class="title has-text-centered">Choose your exercise!</h1>
       <div v-for="exercise in exercises" :key="exercise.name">
@@ -9,11 +9,14 @@
             <div>
               <h3 class="has-text-warning has-text-weight-bold">{{ exercise.name }}</h3>
               <div class="has-text-white has-text-weight-semibold" v-html="exercise.description"></div>
-              <div class="has-text-black">Completions: {{exercise.views}}</div>
+            <!--<div class="has-text-black">Completions: {{exercise.views}}</div>-->
             </div>
         </div>
         </router-link>
-        <div class="column is-offset-one-fifth-desktop is-three-fifths-desktop has-text-weight-semibold">Difficulty Level<progress class="progress is-small is-warning" value="30" max="100">90%</progress></div>
+        <!--<button class="button" @click="increment">Increment</button>
+        {{ exercise.views }}-->
+        <div class="row is-offset-one-fifth-desktop is-three-fifths-desktop has-text-weight-semibold">Difficulty<progress class="progress is-small is-success" :value="exercise.difficulty" max="100"></progress></div>
+        <div class="has-text-white" v-if="exercise.views > 0">Times you've completed this routine: {{ exercise.views }}</div>
       </div>
     </div>
   </div>
@@ -21,6 +24,7 @@
 
 <script>
 import {mapState} from 'vuex';
+
 export default {
   name: "home",
   components: {},
@@ -28,8 +32,16 @@ export default {
       return {
         exercises: this.$store.state.exercises
       }
+    },
+        computed: {
+      ...mapState(['views'])
+    },
+    methods: {
+        increment() {
+        this.$store.dispatch('increment')
+        }
     }
-  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -50,4 +62,3 @@ export default {
     }
   }
 </style>
-
