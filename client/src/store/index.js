@@ -14,7 +14,7 @@ export default new Vuex.Store({
             Follow along with us and get your upper-body strength to the next level!</p>`,
             thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/biceps1.png',
             views: 1,
-            difficulty: 75
+            difficulty: 75,
             },
             {
             id: 2,
@@ -53,6 +53,7 @@ export default new Vuex.Store({
             difficulty: 25
             } 
           ],
+          
           completedWorkout: []
         },
     mutations: {
