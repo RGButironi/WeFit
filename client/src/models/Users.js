@@ -1,14 +1,10 @@
-const Users = [
-    { Name: 'Ron', Password: "pass", Email: 'ron@gmail.com'},
-];
+import myFetch from "./myFetch";
 
 export let CurrentUser = null;
 
-export function Login(email, password) {
-    const user = Users.find(x => x.Email == email);
+export async function Login(email, password) {
 
-    if(!user) throw Error('User not found')
-    if(user.Password != password) throw Error('Wrong password')
+    const user = await myFetch('/users/login', { email, password }) ;
 
     return CurrentUser = user;
 }
