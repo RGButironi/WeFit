@@ -6,7 +6,7 @@
         <div class="tile is-parent">
         <article class="tile is-child notification is-info is-bold">
             <figure class="image is-4by3">
-                <img :src="picture">
+                <!--<img :src="picture">-->
             </figure>
           <p class="title">{{ name }}</p>
           <p class="subtitle">{{ location }}</p>
@@ -53,7 +53,6 @@ import UserProfile from "@/models/UserProfile";
 
 export default {
     data: () => ({
-        UserProfile,
         isOpenUserProfile: false,
         name: UserProfile.State.UserProfile.Name,
         bio: UserProfile.State.UserProfile.Bio,
@@ -62,8 +61,9 @@ export default {
         focus: UserProfile.State.UserProfile.Focus,
         annualgoal: UserProfile.State.UserProfile.AnnualGoal
     }),
+    
     created() {
-      UserProfile.Init()
+        UserProfile.Init()
     }
 }
 </script>
