@@ -3,7 +3,7 @@ const path = require('path');
 
 //const gameController = require('./controllers/game');
 const usersController = require('./controllers/users');
-
+const userprofileController = require('./controllers/userprofile');
 
 
 const app = express();
@@ -30,7 +30,8 @@ app
     .get('/', (req, res) => res.send('This class is awesome!') )
     //.use('/game', gameController)
     .use('/users', usersController)
-
+    .use('/userprofile', userprofileController)
+    
     .use((req, res) => {
         const homePath = path.join( __dirname , '/../client/dist/index.html');
         console.log(homePath);

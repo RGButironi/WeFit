@@ -9,7 +9,7 @@ import AdminLogin from '../views/AdminLogin.vue'
 import { CurrentAdmin } from '../models/Admin'
 import ExercisePerform from "../views/ExercisePerform.vue"
 import AdminWorkbench from "../views/AdminWorkbench.vue"
-import Profile from "../views/Profile.vue"
+import UserProfile from "../views/UserProfile.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -20,7 +20,7 @@ const routes = [
   { path: '/adminlogin', name: 'AdminLogin', component: AdminLogin },
   { path: "/exercise/:id", name: "exercise-perform", component: ExercisePerform, params: true },
   { path: '/adminworkbench', name: 'AdminWorkbench', component: AdminWorkbench },
-  { path: '/profile', name: 'Profile', component: Profile },
+  { path: '/userprofile', name: 'UserProfile', component: UserProfile },
   {
     path: '/about',
     name: 'About',

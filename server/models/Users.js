@@ -13,7 +13,4 @@ module.exports = {
     
         return user;
     },
-    Get(userId) {
-        return Users[userId]
-    }
 }
