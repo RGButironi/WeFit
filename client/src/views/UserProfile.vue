@@ -3,10 +3,10 @@
 <div class="tile is-ancestor">
   <div class="tile is-vertical is-8">
     <div class="tile">
-        <div class="tile is-parent">
+        <div class="tile is-parent has-text-centered">
         <article class="tile is-child notification is-info is-bold">
-            <figure class="image is-4by3">
-                <!--<img :src="picture">-->
+            <figure class="image is-square ">
+                <img :src="picture">
             </figure>
           <p class="title">{{ name }}</p>
           <p class="subtitle">{{ location }}</p>
@@ -53,10 +53,11 @@ import UserProfile from "@/models/UserProfile";
 
 export default {
     data: () => ({
+          UserProfile,
         isOpenUserProfile: false,
         name: UserProfile.State.UserProfile.Name,
         bio: UserProfile.State.UserProfile.Bio,
-        //picture: UserProfile.State.UserProfile.Picture,
+        picture: UserProfile.State.UserProfile.Picture,
         location: UserProfile.State.UserProfile.Location,
         focus: UserProfile.State.UserProfile.Focus,
         annualgoal: UserProfile.State.UserProfile.AnnualGoal
@@ -74,4 +75,7 @@ export default {
     margin-right: 90px;
 }
 
+.profimage {
+  justify-content: center;
+}
 </style>
