@@ -18,8 +18,8 @@
           <p class="subtitle">{{ annualgoal }}</p>
         </article>
         <article class="tile is-child notification is-warning is-bold">
-          <p class="title">Fitness Focus:</p>
-          <p class="subtitle">{{ focus }}</p>
+          <p class="title">Favorite Exercise:</p>
+          <p class="subtitle">{{ favorite }}</p>
         </article>
       </div>
     </div>
@@ -37,9 +37,11 @@
     <article class="tile is-child notification is-success is-bold">
       <div class="content">
         <p class="title is-3">Recently Completed Workouts</p>
-        <p class="subtitle">With even more content</p>
+        <p class="subtitle">{{ test }}</p>
         <div class="content">
-          <!-- Content -->
+          <ul>
+              <button v-for="Achievement in Achievements" :key="Achievement">{{test}}</button>
+          </ul>
         </div>
       </div>
     </article>
@@ -50,21 +52,26 @@
 
 <script>
 import UserProfile from "@/models/UserProfile";
-
+//import Exercises from "@/models/Exercises";
 export default {
     data: () => ({
           UserProfile,
+          //Exercises,
         isOpenUserProfile: false,
         name: UserProfile.State.UserProfile.Name,
+        favorite: UserProfile.State.UserProfile.Favorite,
+        annualgoal: UserProfile.State.UserProfile.AnnualGoal,
         bio: UserProfile.State.UserProfile.Bio,
         picture: UserProfile.State.UserProfile.Picture,
         location: UserProfile.State.UserProfile.Location,
-        focus: UserProfile.State.UserProfile.Focus,
-        annualgoal: UserProfile.State.UserProfile.AnnualGoal
+        //category: Exercises.State.Exercises.Category
+        test: UserProfile.State.Achievements.Achievement
+
     }),
     
     created() {
-        UserProfile.Init()
+        UserProfile.Init();
+        //Exercises.Init();
     }
 }
 </script>

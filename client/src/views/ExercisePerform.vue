@@ -5,15 +5,17 @@
   <div class="column">
   <button class="button is-info is-centered" v-if="completed">Nice job!</button>
   <div v-else>
-    <button class="button is-warning" v-on:click="displayCompleted">Workout Finished</button>
+    <button class="button is-warning" @click="shareAchievement">Workout Finished</button>
+    <!-- dilapidated, for vuex: v-on:click="displayCompleted -->
   </div>
 </div>
 </div>
 </template>
 
 <script>
-import VueTable from 'vuejs-spreadsheet';
+
 import { mapState } from 'vuex';
+import Achievements from "@/models/Achievements";
 export default {
     computed: {
         exercise(){
@@ -28,12 +30,20 @@ export default {
     methods: {
       displayCompleted(){
         this.$store.dispatch('displayCompleted', this.exercise.id)
+      },
+      async shareAchievement() {
+        try {
+          await Achievements.add(this.exercise.name)
+        } catch(error) {
+          this.errror = error
+        }
       }
     },
-    components: {
-      VueTable,
-    }
+      data: () => ({
+        name: ""
+      })
 }
+
 </script>
 
 <style>

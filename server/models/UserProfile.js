@@ -4,7 +4,7 @@ const UserProfile = [
         Bio: "Future Biggest Loser!",
         Picture: "http://cs.newpaltz.edu/~butironr1/WeFitPics/ronwefit.jpeg",
         Location: "New York, New York",
-        Focus: "Weight Loss",
+        Favorite: "Weight Loss",
         AnnualGoal: "Lose 25 pounds and run a mile in 7 minutes or less",
         userId: 0
     },
@@ -13,7 +13,7 @@ const UserProfile = [
         Bio: "I only start counting reps when it begins to hurt!",
         Picture: "http://cs.newpaltz.edu/~butironr1/WeFitPics/conorwefit.png",
         Location: "Los Angeles, California",
-        Focus: "Strength",
+        Favorite: "Strength",
         AnnualGoal: "Bench 300ibs for 10 reps",
         userId: 1
     },
@@ -22,15 +22,41 @@ const UserProfile = [
         Bio: "Runner's high is my kind of drug!",
         Picture: "http://cs.newpaltz.edu/~butironr1/WeFitPics/mikewefit.png",
         Location: "Boulder, Colorado",
-        Focus: "Endurance",
+        Favorite: "Endurance",
         AnnualGoal: "Break 2 hours and 30 minutes in the Marathon",
         userId: 3
     },
 ];
 
+const Achievements = [
+    {
+        userId: 0,
+        Achievement: [
+            
+        ]
+    },
+    {
+        userId: 1,
+        Achievement: [
+            
+        ]
+    },
+    {
+        userId: 2,
+        Achievement: [
+    
+        ]
+    }
+];
 function GetUserId(userId){
     return Players.findIndex(x=> x.userId == userId);
 }
+function shareAchievement(userid, name){
+    const id = Achievements.find(x=> x.userId == userid);
+    id.Achievement.push([name]);
+    return id;
+}
+
 module.exports = {
-    UserProfile
+    UserProfile, shareAchievement, Achievements
 }
