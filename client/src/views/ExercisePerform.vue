@@ -31,15 +31,17 @@ export default {
         this.$store.dispatch('displayCompleted', this.exercise.id)
       },
       async shareAchievement() {
+        var time = new Date().toLocaleString();
         try {
-          await Achievements.add(this.exercise.name)
+          await Achievements.add(this.exercise.name, time)
         } catch(error) {
           this.errror = error
         }
       }
     },
       data: () => ({
-        name: ""
+        name: "",
+        //time: ""
       })
 }
 

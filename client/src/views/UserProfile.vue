@@ -43,6 +43,8 @@
               <tr v-for="Achievement in test" :key="Achievement">
                   <div class="notification is-primary">{{ Achievement[0] }}
                     <button class="delete" @click="success = false"></button>
+                    <br>
+                    <div>on {{ Achievement[1] }}</div>
                   </div>
               </tr>
           </ul>

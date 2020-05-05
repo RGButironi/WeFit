@@ -9,7 +9,7 @@ router
         Achievements: userprofile.Achievements[req.userId]
     }))
     .post('/shareachievement', (req, res) => res.send(
-        userprofile.shareAchievement(req.userId, req.body.name)
+        userprofile.shareAchievement(req.userId, req.body.name, req.body.time)
     ))
     
 module.exports = router;

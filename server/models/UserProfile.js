@@ -51,9 +51,9 @@ const Achievements = [
 function GetUserId(userId){
     return Players.findIndex(x=> x.userId == userId);
 }
-function shareAchievement(userid, name){
+function shareAchievement(userid, name, time){
     const id = Achievements.find(x=> x.userId == userid);
-    id.Achievement.push([name]);
+    id.Achievement.push([name, time]);
     return id;
 }
 
