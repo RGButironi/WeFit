@@ -37,10 +37,14 @@
     <article class="tile is-child notification is-success is-bold">
       <div class="content">
         <p class="title is-3">Recently Completed Workouts</p>
-        <p class="subtitle">{{ test }}</p>
+        <!--<p class="subtitle">{{ test }}</p>-->
         <div class="content">
           <ul>
-              <button v-for="Achievement in Achievements" :key="Achievement">{{test}}</button>
+              <tr v-for="Achievement in test" :key="Achievement">
+                  <div class="notification is-primary">{{ Achievement[0] }}
+                    <button class="delete" @click="success = false"></button>
+                  </div>
+              </tr>
           </ul>
         </div>
       </div>

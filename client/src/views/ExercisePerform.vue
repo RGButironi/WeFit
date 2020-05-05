@@ -5,8 +5,7 @@
   <div class="column">
   <button class="button is-info is-centered" v-if="completed">Nice job!</button>
   <div v-else>
-    <button class="button is-warning" @click="shareAchievement">Workout Finished</button>
-    <!-- dilapidated, for vuex: v-on:click="displayCompleted -->
+    <button class="button is-warning" @click="shareAchievement(); displayCompleted();">Workout Finished</button>
   </div>
 </div>
 </div>
