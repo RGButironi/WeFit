@@ -10,6 +10,7 @@
             </figure>
           <p class="title">{{ name }}</p>
           <p class="subtitle">{{ location }}</p>
+              <button class="button is-centered is-info is-rounded is-bordered is-light">My Friends Achievements</button>
         </article>
       </div>
       <div class="tile is-parent is-vertical">
@@ -36,16 +37,17 @@
   <div class="tile is-parent">
     <article class="tile is-child notification is-success is-bold">
       <div class="content">
-        <p class="title is-3">Recently Completed Workouts</p>
+        <p class="title is-3">{{name}}'s Completed Workouts</p>
         <!--<p class="subtitle">{{ test }}</p>-->
         <div class="content">
           <ul>
               <tr v-for="Achievement in test" :key="Achievement">
                   <div class="notification is-primary">{{ Achievement[0] }}
-                    <button class="delete" @click="success = false"></button>
                     <br>
                     <div>on {{ Achievement[1] }}</div>
+                    <button class="button is-small is-rounded is-light is-info is-outlined" @click="success = false">Share</button>
                   </div>
+                  <br>
               </tr>
           </ul>
         </div>

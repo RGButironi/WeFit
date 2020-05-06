@@ -10,6 +10,7 @@ import { CurrentAdmin } from '../models/Admin'
 import ExercisePerform from "../views/ExercisePerform.vue"
 import AdminWorkbench from "../views/AdminWorkbench.vue"
 import UserProfile from "../views/UserProfile.vue"
+import NewsFeed from "../views/NewsFeed.vue"
 Vue.use(VueRouter)
 
 const routes = [
@@ -21,6 +22,7 @@ const routes = [
   { path: "/exercise/:id", name: "exercise-perform", component: ExercisePerform, params: true },
   { path: '/adminworkbench', name: 'AdminWorkbench', component: AdminWorkbench },
   { path: '/userprofile', name: 'UserProfile', component: UserProfile },
+  { path: '/newsfeed', name: 'NewsFeed', component: NewsFeed },
   {
     path: '/about',
     name: 'About',
