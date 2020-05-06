@@ -48,6 +48,27 @@ const Achievements = [
         ]
     }
 ];
+
+const NewsFeeds = [
+    {
+        userId: 0,
+        NewsFeed: [
+            
+        ]
+    },
+    {
+        userId: 1,
+        NewsFeed: [
+            
+        ]
+    },
+    {
+        userId: 2,
+        NewsFeed: [
+    
+        ]
+    }
+];
 function GetUserId(userId){
     return Players.findIndex(x=> x.userId == userId);
 }
@@ -56,7 +77,12 @@ function shareAchievement(userid, name, time){
     id.Achievement.push([name, time]);
     return id;
 }
+function toNewsFeed(userid, name, time){
+    const id = NewsFeeds.find(x=> x.userId == userid);
+    id.NewsFeed.push([name, time]);
+    return id;
+}
 
 module.exports = {
-    UserProfile, shareAchievement, Achievements
+    UserProfile, shareAchievement, Achievements, NewsFeeds, toNewsFeed
 }

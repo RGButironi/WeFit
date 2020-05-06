@@ -7,7 +7,8 @@
       <router-link to="/signup">Sign Up</router-link> |
       <router-link to="/login">Log In</router-link> |
       <router-link to="/workout">Workout</router-link> |
-      <router-link to="/userprofile">Profile</router-link>
+      <router-link to="/userprofile">Profile</router-link> |
+      <router-link to="/newsfeed">NewsFeed</router-link>
     </div>
     <router-view/>
     <footer><router-link to="/adminworkbench">Admin Workbench</router-link></footer>

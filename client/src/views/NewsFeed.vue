@@ -2,19 +2,22 @@
 <section class="section has-background-warning">
     <br>
   <article class="media column is-three-fifths is-offset-one-fifth">
-  <figure class="media-left">
-    <p class="image is-64x64">
-      <img src="https://bulma.io/images/placeholders/128x128.png">
-    </p>
-  </figure>
   <div class="media-content">
     <div class="content">
-      <p>
-        <strong>John Smith</strong> <small>@johnsmith</small> <small>31m</small>
+          <ul>
+              <tr v-for="Achievement in log3" :key="Achievement">
+    <p class="image is-64x64">
+      <img :src="picture">
+    </p>
+                  <p>
+        <strong>{{name}}</strong> <small>completed our {{Achievement[0]}} routine on</small> <small>{{Achievement[1]}}</small>
         <br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+        <!--{{Exercise.description}}-->
       </p>
-    </div>
+                  <br>
+              </tr>
+          </ul>
+        </div>
     <nav class="level is-mobile">
       <div class="level-left">
         <a class="level-item">
@@ -36,8 +39,23 @@
 </template>
 
 <script>
-export default {
+import UserProfile from "@/models/UserProfile";
+import NewsFeeds from "@/models/Achievements";
 
+export default {
+    data: () => ({
+          UserProfile,
+          //NewsFeeds,
+        isOpenUserProfile: false,
+        log: UserProfile.State.NewsFeed,
+        log3: UserProfile.State.Achievements.Achievement,
+        name: UserProfile.State.UserProfile.Name,
+        picture: UserProfile.State.UserProfile.Picture,
+
+    }),
+    created(){
+      UserProfile.Init()
+    }
 }
 </script>
 

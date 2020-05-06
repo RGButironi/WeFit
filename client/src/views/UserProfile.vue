@@ -10,7 +10,9 @@
             </figure>
           <p class="title">{{ name }}</p>
           <p class="subtitle">{{ location }}</p>
+            <router-link to="/newsfeed">
               <button class="button is-centered is-info is-rounded is-bordered is-light">My Friends Achievements</button>
+            </router-link>
         </article>
       </div>
       <div class="tile is-parent is-vertical">
@@ -41,11 +43,11 @@
         <!--<p class="subtitle">{{ test }}</p>-->
         <div class="content">
           <ul>
-              <tr v-for="Achievement in test" :key="Achievement">
+              <tr v-for="Achievement in log" :key="Achievement">
                   <div class="notification is-primary">{{ Achievement[0] }}
                     <br>
                     <div>on {{ Achievement[1] }}</div>
-                    <button class="button is-small is-rounded is-light is-info is-outlined" @click="success = false">Share</button>
+                    <button class="button is-small is-rounded is-light is-info is-outlined" @click="toNewsFeed">Share</button>
                   </div>
                   <br>
               </tr>
@@ -60,6 +62,7 @@
 
 <script>
 import UserProfile from "@/models/UserProfile";
+//import Achievements from "@/models/Achievements";
 //import Exercises from "@/models/Exercises";
 export default {
     data: () => ({
@@ -73,10 +76,23 @@ export default {
         picture: UserProfile.State.UserProfile.Picture,
         location: UserProfile.State.UserProfile.Location,
         //category: Exercises.State.Exercises.Category
-        test: UserProfile.State.Achievements.Achievement
+        log: UserProfile.State.Achievements.Achievement
 
     }),
-    
+    methods: {
+      async toNewsFeed() {
+        var time = new Date().toLocaleString();
+        try {
+          await NewsFeeds.add(this.exercise.name, time)
+        } catch(error) {
+          this.errror = error
+        }
+      }
+    },
+    //data: () => ({
+    //    name: "",
+        //time: ""
+    //  }),
     created() {
         UserProfile.Init();
         //Exercises.Init();
