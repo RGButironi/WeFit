@@ -7,7 +7,7 @@ router
     .get("/", (req, res) => res.send({
         UserProfile: userprofile.UserProfile[req.userId],
         Achievements: userprofile.Achievements[req.userId],
-        NewsFeed: userprofile.NewsFeeds[req.userId]
+        NewsFeed: userprofile.NewsFeed
     }))
     .post('/shareachievement', (req, res) => res.send(
         userprofile.shareAchievement(req.userId, req.body.name, req.body.time)

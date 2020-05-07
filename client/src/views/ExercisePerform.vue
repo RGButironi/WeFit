@@ -1,6 +1,7 @@
 <template>
 <div class="has-background-primary">
   <h1 class="column is-offset-one-third is-one-third title">{{ exercise.name }}</h1>
+  <img :src="exercise.workout">
   <div class="column is-three-fifths is-offset-one-fifth" v-html="exercise.description"></div>
   <div class="column">
   <button class="button is-info is-centered" v-if="completed">Nice job!</button>

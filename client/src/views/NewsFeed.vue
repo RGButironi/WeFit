@@ -4,20 +4,19 @@
   <article class="media column is-three-fifths is-offset-one-fifth">
   <div class="media-content">
     <div class="content">
-          <ul>
-              <tr v-for="Achievement in log3" :key="Achievement">
-    <p class="image is-64x64">
-      <img :src="picture">
-    </p>
-                  <p>
-        <strong>{{name}}</strong> <small>completed our {{Achievement[0]}} routine on</small> <small>{{Achievement[1]}}</small>
-        <br>
-        <!--{{Exercise.description}}-->
-      </p>
-                  <br>
-              </tr>
-          </ul>
-        </div>
+      <ul>
+        <tr v-for="NewsFeed in log" :key="NewsFeed.time">
+          <p class="image is-64x64">
+            <img :src="NewsFeed.picture">
+          </p>
+              <p>
+              <strong>{{NewsFeed.name}}</strong> <small>completed our {{NewsFeed.category}} routine on</small> <small>{{NewsFeed.time}}</small>
+            <br>
+              </p>
+            <br>
+          </tr>
+      </ul>
+    </div>
     <nav class="level is-mobile">
       <div class="level-left">
         <a class="level-item">

@@ -24,7 +24,7 @@ const UserProfile = [
         Location: "Boulder, Colorado",
         Favorite: "Endurance",
         AnnualGoal: "Break 2 hours and 30 minutes in the Marathon",
-        userId: 3
+        userId: 2
     },
 ];
 
@@ -49,25 +49,8 @@ const Achievements = [
     }
 ];
 
-const NewsFeeds = [
-    {
-        userId: 0,
-        NewsFeed: [
-            
-        ]
-    },
-    {
-        userId: 1,
-        NewsFeed: [
-            
-        ]
-    },
-    {
-        userId: 2,
-        NewsFeed: [
+const NewsFeed = [
     
-        ]
-    }
 ];
 function GetUserId(userId){
     return Players.findIndex(x=> x.userId == userId);
@@ -77,12 +60,14 @@ function shareAchievement(userid, name, time){
     id.Achievement.push([name, time]);
     return id;
 }
-function toNewsFeed(userid, name, time){
-    const id = NewsFeeds.find(x=> x.userId == userid);
-    id.NewsFeed.push([name, time]);
+function toNewsFeed(userid, category, time){
+    const id = UserProfile.find(x=> x.userId == userid);
+    NewsFeed.push({ 
+        name: id.Name, picture: id.Picture, category: category, time: time
+     });
     return id;
 }
 
 module.exports = {
-    UserProfile, shareAchievement, Achievements, NewsFeeds, toNewsFeed
+    UserProfile, shareAchievement, Achievements, NewsFeed, toNewsFeed
 }

@@ -15,6 +15,7 @@ export default new Vuex.Store({
             thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/biceps1.png',
             views: 1,
             difficulty: 75,
+            workout: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/WorkoutPhotos/UpperBody.png',
             },
             {
             id: 2,
@@ -24,7 +25,8 @@ export default new Vuex.Store({
             of a weak core.</p>`,
             thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/core.png',
             views: 0,
-            difficulty: 95
+            difficulty: 95,
+            workout: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/WorkoutPhotos/Abbs.png',
             },
             {
             id: 3,
@@ -32,7 +34,8 @@ export default new Vuex.Store({
             description: `<p>Poor lower-body strength is a stumbling block for many folks, that's why there's no skipping leg day with WeFit! Come build your lower body with this great routine!</p>`,
             thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/legs.png',
             views: 0,
-            difficulty: 55
+            difficulty: 55,
+            workout: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/WorkoutPhotos/Legs.png',
             },
             {
             id: 4,
@@ -41,7 +44,8 @@ export default new Vuex.Store({
             This routine incorporates a comprehensive cardio routine that will lay the foundation for fitness goals</p>`,
             thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/cardio.png',
             views: 4,
-            difficulty: 30
+            difficulty: 30,
+            workout: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/WorkoutPhotos/Cardio.png',
             },
             {
             id: 5,
@@ -50,7 +54,8 @@ export default new Vuex.Store({
             years younger, use whenever you're feeling muscle tension, or just for fun!</p>`,
             thumbnail: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/yoga.png',
             views: 0,
-            difficulty: 25
+            difficulty: 25,
+            workout: 'http://cs.newpaltz.edu/~butironr1/WeFitPics/WorkoutPhotos/Yoga.png',
             } 
           ],
           
