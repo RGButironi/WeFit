@@ -2,6 +2,32 @@
 <section class="section has-background-warning">
     <br>
   <article class="media column is-three-fifths is-offset-one-fifth">
+    <section>
+        <p class="content"><b>Selected:</b> {{ selected }}</p>
+        <b-field label="Find a User">
+            <b-autocomplete
+                :data="data"
+                placeholder="Mike Parish"
+                field="title"
+                :loading="isFetching"
+                v-on:@typing="getAsyncData"
+                @select="option => selected = option">
+
+                <template slot-scope="props">
+                    <div class="media">
+                        <div class="media-left">
+                            <img width="32" :src="`https://image.tmdb.org/t/p/w500/${props.option.poster_path}`">
+                        </div>
+                        <div class="media-content">
+    
+                            <br>
+                            
+                        </div>
+                    </div>
+                </template>
+            </b-autocomplete>
+        </b-field>
+    </section>
   <div class="media-content">
     <div class="content">
       <ul>
@@ -40,6 +66,8 @@
 <script>
 import UserProfile from "@/models/UserProfile";
 import NewsFeeds from "@/models/Achievements";
+import myFetch from '../models/myFetch';
+
 
 export default {
     data: () => ({
@@ -54,6 +82,29 @@ export default {
     }),
     created(){
       UserProfile.Init()
+    },
+    methods: {
+        // You have to install and import _.debounce to use it,
+        // it's not mandatory though.
+        getAsyncData() {
+            if (!name.length) {
+                this.data = []
+                return
+            }
+            this.isFetching = true
+            myFetch.get({name})
+                .then(({ data }) => {
+                    this.data = []
+                    data.results.forEach((item) => this.data.push(item))
+                })
+                .catch((error) => {
+                    this.data = []
+                    throw error
+                })
+                .finally(() => {
+                    this.isFetching = false
+                })
+        }
     }
 }
 </script>
